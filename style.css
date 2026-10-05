@@ -1,0 +1,154 @@
+/* style.css - High Contrast & Neon-Pastel Palette */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Palette from Image 3 */
+    --dark-purple: #230B45; /* ปรับให้เป็นสีม่วงเข้มเกือบดำ เพื่อให้อ่านง่ายบนพื้นขาว */
+    --primary-purple: #5D2F77;
+    --accent-pink: #E45A92;
+    --light-peach: #FFACAC;
+    
+    /* Text Colors */
+    --text-main: #1A1A1A; /* สีดำสำหรับข้อความทั่วไป */
+    --text-sub: #444444; /* สีเทาเข้มสำหรับข้อความรอง */
+    
+    /* Background gradient */
+    --main-gradient: linear-gradient(135deg, #15173D 0%, #982598 100%);
+    
+    --font-heading: 'Kanit', sans-serif;
+    --font-body: 'Noto Sans Thai', sans-serif;
+}
+
+body {
+    background: var(--main-gradient) !important;
+    background-attachment: fixed !important;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    min-height: 100vh;
+    font-weight: 500; 
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .btn, .nav-link, .card-title {
+    font-family: var(--font-heading); 
+    font-weight: 700; 
+}
+
+/* บังคับคลาสของ Bootstrap ให้อ่านง่ายขึ้น */
+.text-muted, .text-secondary { color: var(--text-sub) !important; font-weight: 500; }
+.text-dark { color: var(--text-main) !important; }
+
+/* Navbar */
+.navbar { 
+    background: #110B29 !important; /* ม่วงเข้มสุดสำหรับ Navbar */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important; 
+    padding: 0.8rem 0;
+}
+.navbar-brand { font-size: 1.5rem; letter-spacing: 1px; color: white !important; }
+
+/* Hero Banner */
+.hero-banner {
+    background: rgba(35, 11, 69, 0.7);
+    backdrop-filter: blur(10px);
+    color: white; 
+    padding: 80px 0; 
+    margin-bottom: 4rem;
+    border-radius: 0 0 50px 50px;
+    position: relative; 
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-img-container {
+    position: relative; display: inline-block; width: 100%;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
+}
+
+.hero-img {
+    max-height: 450px; width: 100%; object-fit: contain; vertical-align: bottom;
+}
+
+/* Cards */
+.content-card, .service-card {
+    background: rgb(255, 255, 255); border-radius: 20px; border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: all 0.3s ease; overflow: hidden;
+    color: var(--text-main);
+}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(228, 90, 146, 0.4); }
+
+.service-img-container { height: 220px; overflow: hidden; position: relative; background-color: #eee; }
+.service-img-top { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.service-card:hover .service-img-top { transform: scale(1.05); }
+
+/* Artist Badge */
+.artist-badge {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(255, 255, 255, 0.95); padding: 5px 12px 5px 5px;
+    border-radius: 30px; display: flex; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); font-size: 0.85rem; font-weight: 700;
+    color: var(--dark-purple);
+}
+.artist-mini-avatar { width: 30px; height: 30px; border-radius: 50%; margin-right: 8px; object-fit: cover; }
+
+/* Profile Header */
+.profile-header-card {
+    background: white; border-radius: 15px; position: relative; overflow: visible; z-index: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 2rem;
+}
+.profile-cover { height: 160px; background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink)); border-radius: 15px 15px 0 0; }
+.profile-avatar-container { position: absolute; top: 110px; left: 40px; z-index: 5; }
+.profile-avatar { width: 90px; height: 90px; border-radius: 50%; border: 4px solid white; object-fit: cover; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.profile-info { padding: 60px 30px 30px 40px; color: var(--text-main); }
+
+/* Incoming Orders & Tables */
+.incoming-orders-card { 
+    background: #ffffff !important; 
+}
+.incoming-orders-card .card-header-custom { 
+    color: var(--dark-purple) !important; 
+    border-bottom: 2px solid rgba(228, 90, 146, 0.3); 
+    padding: 1.5rem; font-weight: 700; font-size: 1.2rem;
+}
+.table th { color: var(--dark-purple) !important; font-weight: 800 !important; border-bottom: 2px solid var(--primary-purple) !important; }
+.table td { color: var(--text-main) !important; font-weight: 500; }
+tbody tr:hover { background-color: rgba(228, 90, 146, 0.05) !important; }
+
+/* Chat */
+.chat-msg { max-width: 75%; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; font-weight: 500; }
+.chat-msg.me { background-color: var(--primary-purple); color: white; border-bottom-right-radius: 0; }
+.chat-msg.other { background-color: #f1f1f1; color: var(--text-main); border-bottom-left-radius: 0; }
+.chat-img { max-width: 200px; border-radius: 10px; cursor: pointer; transition: transform 0.2s; }
+.chat-img:hover { transform: scale(1.05); }
+
+/* Utility Buttons */
+.btn { border-radius: 50px; padding: 8px 24px; transition: 0.3s; font-weight: 700; }
+.btn-purple { background: var(--primary-purple); color: white; border: none; }
+.btn-purple:hover { background: var(--dark-purple); color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(93, 47, 119, 0.4); }
+
+.btn-pink { background: var(--accent-pink); color: white; border: none; }
+.btn-pink:hover { background: #c23e75; color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(228, 90, 146, 0.4); }
+
+.btn-light-main { background: var(--light-peach); color: var(--dark-purple); font-weight: 800; border: none; }
+.btn-light-main:hover { background: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 172, 172, 0.4); }
+
+.price-tag { color: var(--accent-pink); font-size: 1.2rem; font-weight: 800; }
+.empty-state { padding: 4rem 2rem; text-align: center; color: rgba(255,255,255,0.8); }
+
+/* Nav Pills Custom */
+.nav-pills .nav-link { color: #fff; background-color: rgba(255,255,255,0.1); transition: 0.3s; border: 1px solid rgba(255,255,255,0.3); font-weight: 700; backdrop-filter: blur(5px); }
+.nav-pills .nav-link.active { background-color: var(--accent-pink); color: white; box-shadow: 0 5px 15px rgba(228, 90, 146, 0.4); border-color: transparent; }
+.nav-pills .nav-link:hover:not(.active) { background-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+
+/* --- Gallery Carousel Styles --- */
+.gallery-img-wrapper { width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; overflow: hidden; }
+.gallery-img { max-width: 100%; max-height: 100%; width: auto !important; height: auto !important; object-fit: contain; }
+
+/* Comment Section Styling */
+.comment-list::-webkit-scrollbar { width: 5px; }
+.comment-list::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 10px; }
+.comment-list { scrollbar-width: thin; }
+
+/* Custom Badge */
+.badge-peach { background-color: var(--light-peach); color: var(--dark-purple); font-weight: 700;}
+.badge-pink { background-color: var(--accent-pink); color: white; font-weight: 700;}
+.badge-purple { background-color: var(--primary-purple); color: white; font-weight: 700;}
